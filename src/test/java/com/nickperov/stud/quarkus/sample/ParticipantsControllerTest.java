@@ -1,21 +1,21 @@
 package com.nickperov.stud.quarkus.sample;
 
 import static io.restassured.RestAssured.given;
-import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.CoreMatchers.instanceOf;
 
 import io.quarkus.test.junit.QuarkusTest;
 import org.junit.jupiter.api.Test;
 
 @QuarkusTest
-public class GreetingResourceTest {
+public class ParticipantsControllerTest {
 
     @Test
-    public void testHelloEndpoint() {
+    public void testGetParticipantEndpoint() {
         given()
-                .when().get("/hello")
+                .when().get("/participants?id=1")
                 .then()
                 .statusCode(200)
-                .body(is("Hello from quarkus"));
+                .body(instanceOf(String.class));
     }
 
 }

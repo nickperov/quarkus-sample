@@ -39,7 +39,36 @@ You can then execute your native executable with: `./target/quarkus-sample-1.0-S
 
 If you want to learn more about building native executables, please consult https://quarkus.io/guides/building-native-image.
 
+## Running application
+
+Test application consists of H2 DB (with a single table __PARTICIPANTS__ which contains first and last name of a person), __Participants__ service and __Participants__ controller.
+
+Application initializes table data on startup.
+
+Some query examples to try application:
+
+Get list of all participants:
+
+    curl localhost:8080/participants/all
+    
+Get specific participant by id:
+
+    curl localhost:8080/participants?id=4
+
+Find participants by first/last name:
+    
+    curl -X POST -H "Content-type: application/json"  -d '{"firstName":"Nick", "lastName":"Lee"}' localhost:8080/participants/find    
+    
+Add new participant:
+    
+    curl -X POST -H "Content-type: application/json"  -d '{"firstName":"John", "lastName":"Black"}' localhost:8080/participants/add
+    
+## Remarks
+
+Embedded H2 in memory DB (jdbc:h2:mem:test) doesn't work with native-image.
+
 ## Authors
+
 Nikolay Perov
 
 ## License
