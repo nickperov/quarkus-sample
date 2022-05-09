@@ -5,7 +5,7 @@ This is a study project, it uses Quarkus, the Supersonic Subatomic Java Framewor
 The project was bootstrapped with maven quarkus plugin:
 
 ```
-mvn io.quarkus:quarkus-maven-plugin:1.6.1.Final:create \
+mvn io.quarkus:quarkus-maven-plugin:2.8.3.Final:create \
     -DprojectGroupId=com.nickperov.stud \
     -DprojectArtifactId=quarkus-sample \
     -DclassName="com.nickperov.stud.quarkus.sample.GreetingResource" \
